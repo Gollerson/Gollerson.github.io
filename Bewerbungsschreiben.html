@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motivationsschreiben - Marius Miron Goller</title>
+    <style>
+        :root {
+            --primary-color: #44475A;
+            --secondary-color: #6272A4;
+            --accent-color: #8BE9FD;
+            --light-color: #F8F8F2;
+            --dark-color: #44475A;
+            --text-color: #2C2C2C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 10px solid var(--secondary-color);
+        }
+
+        .document-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .applicant-name {
+            font-size: 18px;
+            color: var(--accent-color);
+            font-weight: 300;
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .letter-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .sender-info {
+            color: var(--secondary-color);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .date {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .recipient {
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .subject {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .letter-body {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .salutation {
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .paragraph {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .closing {
+            margin-top: 40px;
+            margin-bottom: 60px;
+        }
+
+        .signature-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 40px;
+        }
+
+        .signature {
+            text-align: right;
+        }
+
+        .signature-line {
+            width: 200px;
+            height: 1px;
+            background-color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .attachments {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--accent-color);
+        }
+
+        .attachments-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .attachments-list {
+            color: var(--secondary-color);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        /* Print optimized styles */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .header {
+                background: var(--primary-color) !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .letter-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .signature-area {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="document-title">Bewerbungsschreiben</h1>
+            <p class="applicant-name">Marius Miron Goller</p>
+        </div>
+
+        <div class="content">
+            <div class="letter-meta">
+                <div class="sender-info">
+                    Marius Miron Goller<br>
+                    Wimmelbachstr. 4<br>
+                    91353 Hausen<br>
+                    miron@goller24.de<br>
+                    +49 176 70422551
+                </div>
+                <div class="date" id="currentDate"></div>
+            </div>
+
+            <div class="recipient">
+                <span id="companyName"></span><br>
+                <span id="contactPerson"></span><br>
+                <span id="companyAddress"></span>
+            </div>
+
+            <div class="subject">
+                <strong>Betreff:</strong> Bewerbung als <span id="positionTitle1"></span>
+            </div>
+
+            <div class="letter-body">
+                <div class="salutation">Sehr geehrte Damen und Herren,</div>
+
+                <div class="paragraph">
+                    mit großem Interesse habe ich Ihre Stellenausschreibung für <span id="positionArticle"></span> <span
+                        id="positionTitle2"></span> gelesen. Als engagierter <span class="highlight">Informatikstudent
+                        an der Technischen Hochschule Nürnberg</span> mit einem soliden Hintergrund in Elektrotechnik
+                    und Programmierung bin ich überzeugt, dass ich einen wertvollen Beitrag zu Ihren Forschungsprojekten
+                    leisten kann.
+                </div>
+
+                <div class="paragraph">
+                    Während meiner <span class="highlight">Ausbildung zum Elektroniker für Betriebstechnik</span> bei
+                    der Gebrüder Waasner GmbH sammelte ich praktische Erfahrung mit Maschinenanlagen, insbesondere mit
+                    Fertigungsrobotern zur Sortierung von Blechpaketen. Zusätzlich konnte ich während eines Praktikums
+                    bei der Minderleinsmühle erste wertvolle Einblicke in die Roboterprogrammierung gewinnen. Diese
+                    Erfahrungen haben mein Interesse an <span class="highlight">Automatisierung und Robotik</span>
+                    nachhaltig verstärkt.
+                </div>
+
+                <div class="paragraph">
+                    Parallel zu meinem Studium erweitere ich kontinuierlich meine Kenntnisse in modernen
+                    Programmiersprachen wie <span class="highlight">C#, Python, C und Assembler</span>. Besonders
+                    faszinieren mich dabei die Bereiche Robotik, Machine Learning und Automatisierung – Gebiete, in
+                    denen ich meine theoretischen Kenntnisse gerne praktisch vertiefen möchte.
+                </div>
+
+                <div class="paragraph">
+                    Ich bringe eine <span class="highlight">selbstständige und lösungsorientierte Arbeitsweise</span>
+                    sowie fundierte Englischkenntnisse mit. Meine bisherigen beruflichen Erfahrungen haben mich gelehrt,
+                    mich schnell in neue Aufgabenfelder einzuarbeiten und effektiv im Team zu kommunizieren. Durch meine
+                    <span class="highlight">Weiterbildung zum staatlich geprüften Elektrotechniker</span> verfüge ich
+                    zudem über eine breite technische Basis, die sich ideal mit der Informatik verbinden lässt.
+                </div>
+
+                <div class="paragraph">
+                    Ich freue mich darauf, die Zukunft Ihres Unternehmens aktiv mitzugestalten und meine Kenntnisse in
+                    anspruchsvollen und abwechslungsreichen Tätigkeiten weiterzuentwickeln. Über die Möglichkeit, Sie in
+                    einem persönlichen Gespräch von meiner Motivation und meinen Fähigkeiten zu überzeugen, würde ich
+                    mich sehr freuen.
+                </div>
+
+                <div class="closing">
+                    Mit freundlichen Grüßen<br><br>
+                    Miron Goller
+                </div>
+            </div>
+
+            <div class="attachments">
+                <div class="attachments-title">Anlagen:</div>
+                <div class="attachments-list">
+                    • Lebenslauf<br>
+                    • Notenspiegel Informatikstudium<br>
+                    • Abschlusszeugnis Elektrotechniker<br>
+                    • Prüfungszeugnis Elektroniker für Betriebstechnik<br>
+                    • Arbeitszeugnis Gebrüder Waasner GmbH<br>
+                    • Nachweis Ausbildereignungsprüfung
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const COMPANY_NAME = "Technische Universität Nürnberg";
+        const CONTACT_PERSON = "Personalabteilung";
+        const COMPANY_ADDRESS = "Keßlerplatz 12<br>90489 Nürnberg";
+        const POSITION_TITLE = "studentische Hilfskraft im Bereich Informatik";
+        const POSITION_ARTICLE = "eine"; // "eine" oder "einen" je nach Position
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const dateElement = document.getElementById('currentDate');
+            const today = new Date();
+            const options = {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            };
+            dateElement.textContent = today.toLocaleDateString('de-DE', options);
+
+            document.getElementById('companyName').innerHTML = COMPANY_NAME;
+            document.getElementById('contactPerson').innerHTML = CONTACT_PERSON;
+            document.getElementById('companyAddress').innerHTML = COMPANY_ADDRESS;
+            document.getElementById('positionTitle1').innerHTML = POSITION_TITLE;
+            document.getElementById('positionTitle2').innerHTML = POSITION_TITLE;
+            document.getElementById('positionArticle').innerHTML = POSITION_ARTICLE;
+        });
+    </script>
+</body>
+
+</html>

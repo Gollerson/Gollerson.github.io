@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marius Miron Goller - Lebenslauf</title>
+    <style>
+        :root {
+            --primary-color: #44475A;
+            --secondary-color: #6272A4;
+            --accent-color: #8BE9FD;
+            --light-color: #F8F8F2;
+            --dark-color: #44475A;
+            --timeline-width: 4px;
+            --node-size: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: white;
+            color: var(--dark-color);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background-color: white;
+        }
+
+        /* Print-optimierte Header */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 25mm 15mm 15mm 15mm;
+            text-align: center;
+            page-break-inside: avoid;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+
+        .name {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 16px;
+            color: var(--light-color);
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 13px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .section {
+            padding: 15mm;
+            page-break-inside: avoid;
+        }
+
+        .section-title {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary-color);
+            page-break-after: avoid;
+        }
+
+        .profile-description {
+            font-size: 15px;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Print-optimierte Timeline */
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: var(--timeline-width);
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 8%;
+            margin-left: calc(-1 * var(--timeline-width) / 2);
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 20px;
+            align-items: flex-start;
+            page-break-inside: avoid;
+        }
+
+        .timeline-node {
+            position: relative;
+            width: var(--node-size);
+            height: var(--node-size);
+            background-color: var(--secondary-color);
+            border: 3px solid var(--secondary-color);
+            border-radius: 50%;
+            margin-left: calc(8% - var(--node-size) / 2);
+            flex-shrink: 0;
+            margin-top: 5px;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+
+        .timeline-content {
+            width: 75%;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            margin-left: 15px;
+            flex-grow: 1;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            font-size: 13px;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 15px;
+        }
+
+        .timeline-description {
+            font-size: 13px;
+            line-height: 1.4;
+            color: #555;
+        }
+
+        /* Print-optimierte Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .skill {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            -webkit-print-color-adjust: exact;
+            color-adjust: exact;
+        }
+
+        /* Print-optimierte Dokumente */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .document-card {
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .document-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+        }
+
+        .document-title {
+            font-weight: bold;
+            margin-bottom: 3px;
+            color: var(--primary-color);
+            font-size: 13px;
+        }
+
+        .document-date {
+            font-size: 11px;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .document-description {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* Print-spezifische Anpassungen */
+        @media print {
+            body {
+                background: white !important;
+                font-size: 12px;
+            }
+
+            .container {
+                max-width: none;
+                width: 100%;
+            }
+
+            header {
+                background-color: var(--primary-color) !important;
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+
+            .section {
+                padding: 10mm;
+            }
+
+            .timeline-item {
+                margin-bottom: 15px;
+            }
+
+            .page-break {
+                page-break-before: always;
+            }
+        }
+
+        @page {
+            margin: 15mm;
+            size: A4;
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <div class="profile-info">
+                <div class="profile-image">
+                    <img src="./Anlagen/Profilbild.jpg" alt="Profilbild">
+                </div>
+                <div>
+                    <h1 class="name">Marius Miron Goller</h1>
+                    <p class="title">Informatikstudent & Bachelor Proffessional in Elektrotechnik</p>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>miron@goller24.de</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+49 176 70422551</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Wimmelbachstr. 4, 91353 Hausen</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Profile Section -->
+        <section class="section">
+            <h2 class="section-title">Profil</h2>
+            <p class="profile-description">
+                Informatikstudent mit praktischer Erfahrung in Elektrotechnik und Softwareentwicklung.
+                Fundierte Kenntnisse in C#, Python, C und Assembler.
+                Begeistert von Robotics, Machine Learning und Automatisierung.
+            </p>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="section">
+            <h2 class="section-title">Karriere & Bildungsweg</h2>
+            <div class="timeline">
+                <!-- Technische Hochschule Nürnberg -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">10/2024 - heute</div>
+                        <h3 class="timeline-title">Technische Hochschule Nürnberg</h3>
+                        <p class="timeline-description">Bachelor in Informatik im 2. Semester</p>
+                    </div>
+                </div>
+
+                <!-- Fachschule für Techniker Erlangen -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">09/2022 - 07/2024</div>
+                        <h3 class="timeline-title">Fachschule für Techniker Erlangen</h3>
+                        <p class="timeline-description">Weiterbildung zum staatlich geprüften Elektrotechniker</p>
+                    </div>
+                </div>
+
+                <!-- Gebrüder Waasner GmbH -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">10/2021 - 09/2022</div>
+                        <h3 class="timeline-title">Gebrüder Waasner GmbH</h3>
+                        <p class="timeline-description">Elektroniker für Betriebstechnik<br>
+                            Instandhaltung und Installationen an Fertigungsmaschinen und sonstigen Betriebsmitteln.</p>
+                    </div>
+                </div>
+
+                <!-- Berufsschule Erlangen -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">09/2017 - 01/2021</div>
+                        <h3 class="timeline-title">Berufsschule Erlangen/Gebrüder Waasner GmbH</h3>
+                        <p class="timeline-description">Ausbildung zum Elektroniker für Betriebstechnik</p>
+                    </div>
+                </div>
+
+                <!-- Wirtschaftsschule Erlangen -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">09/2014 - 09/2017</div>
+                        <h3 class="timeline-title">Wirtschaftsschule Erlangen</h3>
+                        <p class="timeline-description">Mittlere Reife</p>
+                    </div>
+                </div>
+
+                <!-- Ehrenbürg Gymnasium Forchheim -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">09/2010 - 09/2014</div>
+                        <h3 class="timeline-title">Ehrenbürg Gymnasium Forchheim</h3>
+                        <p class="timeline-description">Gymnasiale Grundbildung</p>
+                    </div>
+                </div>
+
+                <!-- Grundschule Hausen -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">09/2007 - 09/2010</div>
+                        <h3 class="timeline-title">Grundschule Hausen</h3>
+                        <p class="timeline-description">Grundschulausbildung</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Neue Sektion für Zusatzqualifikationen -->
+        <section class="section page-break">
+            <h2 class="section-title">Zusatzqualifikationen & Dokumente</h2>
+            <div class="documents-grid">
+                <!-- Ausbildereignungsprüfung -->
+                <div class="document-card">
+                    <div class="document-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="document-title">Ausbildereignungsprüfung</h3>
+                    <p class="document-date">12/2023</p>
+                    <p class="document-description">Berechtigung zum Ausbilden von Auszubildenden</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section">
+            <h2 class="section-title">Fähigkeiten</h2>
+            <div class="skills">
+                <div class="skill">Python</div>
+                <div class="skill">C#</div>
+                <div class="skill">C</div>
+                <div class="skill">Assembler</div>
+                <div class="skill">SQL</div>
+                <div class="skill">Elektrotechnik</div>
+                <div class="skill">Betriebstechnik</div>
+                <div class="skill">Ausbildertätigkeit</div>
+                <div class="skill">Roboterprogrammierung</div>
+                <div class="skill">Machine Learning</div>
+                <div class="skill">Automatisierung</div>
+                <div class="skill">Gute Englischkenntnisse</div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
