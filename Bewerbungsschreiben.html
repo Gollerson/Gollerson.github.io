@@ -23,19 +23,22 @@
         }
 
         body {
-            background-color: var(--light-color);
-            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--dark-color);
             line-height: 1.7;
             padding: 40px 20px;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            background-color: white;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
         }
 
         .header {
@@ -170,6 +173,20 @@
             font-weight: 500;
         }
 
+        .attachment-link {
+            display: inline-block;
+            margin: 6px 8px 6px 0;
+            padding: 8px 18px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            color: #fff;
+            border-radius: 20px;
+            font-size: 15px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(98, 114, 164, 0.13);
+            transition: none;
+        }
+
         /* Print optimized styles */
         @media print {
             body {
@@ -186,6 +203,16 @@
                 background: var(--primary-color) !important;
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
+            }
+
+            .letter-body,
+            .paragraph,
+            .attachments,
+            .attachments-list,
+            .attachments-title,
+            .closing {
+                break-inside: avoid;
+                page-break-inside: avoid;
             }
         }
 
@@ -290,14 +317,11 @@
             </div>
 
             <div class="attachments">
-                <div class="attachments-title">Anlagen:</div>
+                <div class="attachments-title">Weitere Informationen & vollständiger Lebenslauf:</div>
                 <div class="attachments-list">
-                    • Lebenslauf<br>
-                    • Notenspiegel Informatikstudium<br>
-                    • Abschlusszeugnis Elektrotechniker<br>
-                    • Prüfungszeugnis Elektroniker für Betriebstechnik<br>
-                    • Arbeitszeugnis Gebrüder Waasner GmbH<br>
-                    • Nachweis Ausbildereignungsprüfung
+                    <a class="attachment-link" href="https://gollerson.github.io" target="_blank">
+                        Mein GitHub-Lebenslauf & Online-Portfolio
+                    </a>
                 </div>
             </div>
         </div>
