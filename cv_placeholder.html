@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marius Miron Goller - Lebenslauf</title>
+    <style>
+        :root {
+            --primary-color: #44475A;
+            --secondary-color: #6272A4;
+            --accent-color: #8BE9FD;
+            --light-color: #F8F8F2;
+            --dark-color: #44475A;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.10);
+            max-width: 500px;
+            width: 95%;
+            padding: 0;
+            overflow: hidden;
+        }
+        .header {
+            /* Gleicher Verlauf wie in interaktiver_lebenslauf.html */
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 36px 30px 24px 30px;
+            text-align: center;
+        }
+        .profile-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+            border-radius: 50%;
+            margin: 0 auto 18px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 32px;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(98, 114, 164, 0.13);
+        }
+        .name {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--accent-color);
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+        .content {
+            padding: 36px 30px 30px 30px;
+            text-align: center;
+        }
+        .message {
+            font-size: 1.08em;
+            line-height: 1.7;
+            margin-bottom: 32px;
+            color: var(--primary-color);
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 24px;
+            font-weight: bold;
+            font-size: 1.08em;
+            box-shadow: 0 2px 8px rgba(98, 114, 164, 0.13);
+            transition: background 0.2s;
+            border: none;
+            margin-bottom: 18px;
+        }
+        .cta-button:active {
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+        }
+        .info-text {
+            margin-top: 18px;
+            font-size: 0.97em;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 0;
+                margin: 12px;
+            }
+            .header, .content {
+                padding: 22px 10px;
+            }
+            .name {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="profile-icon">MG</div>
+            <div class="name">Marius Miron Goller</div>
+            <div class="subtitle">Informatikstudent &amp; Entwickler</div>
+        </div>
+        <div class="content">
+            <div class="message">
+                Für meinen vollständigen Lebenslauf und alle Qualifikationen besuchen Sie bitte meine GitHub Portfolio-Seite.
+            </div>
+            <a href="https://gollerson.github.io" class="cta-button" target="_blank">
+                Zum Online-Lebenslauf
+            </a>
+            <div class="info-text">
+                Dort finden Sie detaillierte Informationen zu Ausbildung und Berufserfahrung.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

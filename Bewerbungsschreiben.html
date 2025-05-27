@@ -26,25 +26,25 @@
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: var(--dark-color);
             line-height: 1.7;
-            padding: 40px 20px;
+            padding: 20px 5px;
             min-height: 100vh;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 16px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
             overflow: hidden;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
         }
 
         .header {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
-            padding: 30px 40px;
+            padding: 22px 24px;
             text-align: center;
             position: relative;
         }
@@ -63,131 +63,113 @@
         }
 
         .document-title {
-            font-size: 28px;
+            font-size: 22px;
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .applicant-name {
-            font-size: 18px;
+            font-size: 15px;
             color: var(--accent-color);
             font-weight: 300;
         }
 
         .content {
-            padding: 50px 40px;
+            padding: 24px 18px 18px 18px;
         }
 
         .letter-meta {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 40px;
+            margin-bottom: 18px;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 12px;
         }
 
         .sender-info {
             color: var(--secondary-color);
-            font-size: 14px;
-            line-height: 1.4;
+            font-size: 12px;
+            line-height: 1.3;
         }
 
         .date {
             color: var(--secondary-color);
             font-weight: 500;
+            font-size: 12px;
         }
 
         .recipient {
-            margin-bottom: 30px;
+            margin-bottom: 16px;
             color: var(--primary-color);
             font-weight: 500;
+            font-size: 13px;
         }
 
         .subject {
             font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--accent-color);
+            margin-bottom: 18px;
+            padding-bottom: 6px;
+            border-bottom: 1.5px solid var(--accent-color);
+            font-size: 13px;
         }
 
         .letter-body {
-            font-size: 16px;
-            line-height: 1.8;
+            font-size: 24px;
+            line-height: 1.6;
         }
 
         .salutation {
-            margin-bottom: 25px;
+            margin-bottom: 14px;
             font-weight: 500;
         }
 
         .paragraph {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             text-align: justify;
+            font-size: 22px;
         }
 
         .closing {
-            margin-top: 40px;
-            margin-bottom: 60px;
-        }
-
-        .signature-area {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-top: 40px;
-        }
-
-        .signature {
-            text-align: right;
-        }
-
-        .signature-line {
-            width: 200px;
-            height: 1px;
-            background-color: var(--secondary-color);
-            margin-bottom: 5px;
+            margin-top: 38px;
+            margin-bottom: 48px;
+            font-size: 22px;
         }
 
         .attachments {
-            margin-top: 40px;
-            padding-top: 20px;
+            margin-top: 18px;
+            padding-top: 10px;
             border-top: 1px solid var(--accent-color);
         }
 
         .attachments-title {
             font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 7px;
+            font-size: 13px;
         }
 
         .attachments-list {
             color: var(--secondary-color);
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .highlight {
-            color: var(--secondary-color);
-            font-weight: 500;
+            font-size: 12px;
+            line-height: 1.5;
         }
 
         .attachment-link {
             display: inline-block;
-            margin: 6px 8px 6px 0;
-            padding: 8px 18px;
+            margin: 4px 6px 4px 0;
+            padding: 6px 14px;
             background: linear-gradient(45deg, var(--secondary-color), var(--accent-color));
             color: #fff;
-            border-radius: 20px;
-            font-size: 15px;
+            border-radius: 16px;
+            font-size: 12px;
             font-weight: bold;
             text-decoration: none;
-            box-shadow: 0 2px 8px rgba(98, 114, 164, 0.13);
+            box-shadow: 0 2px 8px rgba(98, 114, 164, 0.10);
             transition: none;
         }
 
-        /* Print optimized styles */
         @media print {
             body {
                 background-color: white;
@@ -197,43 +179,62 @@
             .container {
                 box-shadow: none;
                 border-radius: 0;
+                max-width: 100%;
             }
 
             .header {
                 background: var(--primary-color) !important;
                 -webkit-print-color-adjust: exact;
                 color-adjust: exact;
-            }
-
-            .letter-body,
-            .paragraph,
-            .attachments,
-            .attachments-list,
-            .attachments-title,
-            .closing {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            body {
-                padding: 20px 10px;
+                padding: 12px 10px !important;
             }
 
             .content {
-                padding: 30px 20px;
+                padding: 12px 10px 10px 10px !important;
             }
 
-            .letter-meta {
-                flex-direction: column;
-                align-items: flex-start;
+            .letter-meta,
+            .recipient,
+            .subject,
+            .attachments,
+            .attachments-title,
+            .attachments-list,
+            .closing {
+                margin-bottom: 8px !important;
+                padding-bottom: 0 !important;
             }
 
-            .signature-area {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
+            .paragraph {
+                margin-bottom: 18px !important;
+                font-size: 18px !important;
+            }
+
+            .letter-body {
+                font-size: 20px !important;
+            }
+
+            .closing {
+                font-size: 18px !important;
+            }
+
+            .attachment-link {
+                font-size: 13px !important;
+                padding: 4px 10px !important;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 0;
+            }
+
+            .header,
+            .content {
+                padding: 10px 4px;
+            }
+
+            .document-title {
+                font-size: 1.1em;
             }
         }
     </style>
@@ -259,60 +260,44 @@
             </div>
 
             <div class="recipient">
-                <span id="companyName"></span><br>
-                <span id="contactPerson"></span><br>
-                <span id="companyAddress"></span>
+                Mitsubishi Heavy Industries – Standort Erlangen Innenstadt / Remote<br>
+                <span id="contactPerson"></span>
             </div>
 
             <div class="subject">
-                <strong>Betreff:</strong> Bewerbung als <span id="positionTitle1"></span>
+                <strong>Betreff:</strong> Bewerbung als Werkstudent für Software Development (Stellen ID: 25-02)
             </div>
 
             <div class="letter-body">
-                <div class="salutation">Sehr geehrte Damen und Herren,</div>
+                <div class="salutation">Sehr geehrtes Team,</div>
 
                 <div class="paragraph">
-                    mit großem Interesse habe ich Ihre Stellenausschreibung für <span id="positionArticle"></span> <span
-                        id="positionTitle2"></span> gelesen. Als engagierter <span class="highlight">Informatikstudent
-                        an der Technischen Hochschule Nürnberg</span> mit einem soliden Hintergrund in Elektrotechnik
-                    und Programmierung bin ich überzeugt, dass ich einen wertvollen Beitrag zu Ihren Forschungsprojekten
-                    leisten kann.
+                    die Verbindung aus moderner Softwareentwicklung, Künstlicher Intelligenz und agilen Methoden in
+                    einem dynamischen Start-up-Umfeld mit Konzernnähe spricht mich sofort an. Als Informatikstudent
+                    im 2. Semester an der Technischen Hochschule Nürnberg und Bachelor Professional in
+                    Elektrotechnik sehe ich hier die ideale Möglichkeit, mein Interesse an smarter Technologie und mein
+                    Wissen gezielt einzubringen.
                 </div>
 
                 <div class="paragraph">
-                    Während meiner <span class="highlight">Ausbildung zum Elektroniker für Betriebstechnik</span> bei
-                    der Gebrüder Waasner GmbH sammelte ich praktische Erfahrung mit Maschinenanlagen, insbesondere mit
-                    Fertigungsrobotern zur Sortierung von Blechpaketen. Zusätzlich konnte ich während eines Praktikums
-                    bei der Minderleinsmühle erste wertvolle Einblicke in die Roboterprogrammierung gewinnen. Diese
-                    Erfahrungen haben mein Interesse an <span class="highlight">Automatisierung und Robotik</span>
-                    nachhaltig verstärkt.
+                    Besonders faszinieren mich Anwendungen im Bereich Computer Vision. In Projekten habe ich
+                    Microcontroller programmiert, erste Machine-Learning-Modelle umgesetzt und vertiefe derzeit meine
+                    Kenntnisse in C#, Python und Webtechnologien.
                 </div>
 
                 <div class="paragraph">
-                    Parallel zu meinem Studium erweitere ich kontinuierlich meine Kenntnisse in modernen
-                    Programmiersprachen wie <span class="highlight">C#, Python, C und Assembler</span>. Besonders
-                    faszinieren mich dabei die Bereiche Robotik, Machine Learning und Automatisierung – Gebiete, in
-                    denen ich meine theoretischen Kenntnisse gerne praktisch vertiefen möchte.
+                    Ich arbeite strukturiert, denke lösungsorientiert und bringe Teamgeist sowie Lernfreude mit. Die
+                    agile Zusammenarbeit in einem Scrum-Team erlebe ich als motivierend und kreativ.
                 </div>
 
                 <div class="paragraph">
-                    Ich bringe eine <span class="highlight">selbstständige und lösungsorientierte Arbeitsweise</span>
-                    sowie fundierte Englischkenntnisse mit. Meine bisherigen beruflichen Erfahrungen haben mich gelehrt,
-                    mich schnell in neue Aufgabenfelder einzuarbeiten und effektiv im Team zu kommunizieren. Durch meine
-                    <span class="highlight">Weiterbildung zum staatlich geprüften Elektrotechniker</span> verfüge ich
-                    zudem über eine breite technische Basis, die sich ideal mit der Informatik verbinden lässt.
-                </div>
-
-                <div class="paragraph">
-                    Ich freue mich darauf, die Zukunft Ihres Unternehmens aktiv mitzugestalten und meine Kenntnisse in
-                    anspruchsvollen und abwechslungsreichen Tätigkeiten weiterzuentwickeln. Über die Möglichkeit, Sie in
-                    einem persönlichen Gespräch von meiner Motivation und meinen Fähigkeiten zu überzeugen, würde ich
-                    mich sehr freuen.
+                    Ich freue mich darauf, Ihre Softwareentwicklung aktiv zu unterstützen und Ihre Vision von vernetzten
+                    Produkten mitzugestalten. Über eine Einladung zum Gespräch freue ich mich sehr.
                 </div>
 
                 <div class="closing">
                     Mit freundlichen Grüßen<br><br>
-                    Miron Goller
+                    Marius Miron Goller
                 </div>
             </div>
 
@@ -328,12 +313,6 @@
     </div>
 
     <script>
-        const COMPANY_NAME = "Technische Universität Nürnberg";
-        const CONTACT_PERSON = "Personalabteilung";
-        const COMPANY_ADDRESS = "Keßlerplatz 12<br>90489 Nürnberg";
-        const POSITION_TITLE = "studentische Hilfskraft im Bereich Informatik";
-        const POSITION_ARTICLE = "eine"; // "eine" oder "einen" je nach Position
-
         document.addEventListener('DOMContentLoaded', function () {
             const dateElement = document.getElementById('currentDate');
             const today = new Date();
@@ -343,13 +322,6 @@
                 day: 'numeric'
             };
             dateElement.textContent = today.toLocaleDateString('de-DE', options);
-
-            document.getElementById('companyName').innerHTML = COMPANY_NAME;
-            document.getElementById('contactPerson').innerHTML = CONTACT_PERSON;
-            document.getElementById('companyAddress').innerHTML = COMPANY_ADDRESS;
-            document.getElementById('positionTitle1').innerHTML = POSITION_TITLE;
-            document.getElementById('positionTitle2').innerHTML = POSITION_TITLE;
-            document.getElementById('positionArticle').innerHTML = POSITION_ARTICLE;
         });
     </script>
 </body>

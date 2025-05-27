@@ -643,6 +643,156 @@
         .contact-btn i {
             font-size: 18px;
         }
+
+        @media print {
+            body {
+                background: #fff !important;
+                color: #000 !important;
+                padding: 0 !important;
+            }
+
+            .animated-background,
+            .overlay,
+            .pdf-modal {
+                display: none !important;
+            }
+
+            .container {
+                background: #fff !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                width: 100% !important;
+                overflow: visible !important;
+                position: static !important;
+            }
+
+            header {
+                background: #fff !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                padding: 24px 0 16px 0 !important;
+            }
+
+            .profile-image,
+            .profile-image img {
+                box-shadow: none !important;
+                background: #fff !important;
+            }
+
+            .section,
+            .timeline,
+            .documents-grid,
+            .skills {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            .timeline-content,
+            .document-card,
+            .skill {
+                background: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                color: #000 !important;
+            }
+
+            .timeline-node {
+                background: #000 !important;
+                border: 2px solid #000 !important;
+                box-shadow: none !important;
+            }
+
+            .section-title {
+                color: #000 !important;
+                border-bottom: 2px solid #000 !important;
+            }
+
+            .contact-btn,
+            .button,
+            button,
+            input[type="submit"] {
+                background: none !important;
+                color: #000 !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                text-decoration: underline !important;
+                padding: 0 !important;
+                margin: 0 8px 0 0 !important;
+                font-weight: normal !important;
+            }
+
+            a,
+            a:visited {
+                color: #000 !important;
+                text-decoration: underline !important;
+            }
+
+            /* Remove page breaks inside timeline items */
+            .timeline-item {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            /* Verstecke die Timeline nur beim Drucken */
+            .timeline,
+            .section-title:has(+ .timeline) {
+                display: none !important;
+            }
+
+            .classic-cv-print {
+                display: table !important;
+                width: 100%;
+                margin-bottom: 24px;
+                border-collapse: collapse;
+            }
+
+            .classic-cv-print th,
+            .classic-cv-print td {
+                border: 1px solid #bbb;
+                padding: 6px 10px;
+                font-size: 14px;
+                text-align: left;
+                vertical-align: top;
+            }
+
+            .classic-cv-print th {
+                background: #eee;
+                font-weight: bold;
+                width: 120px;
+            }
+
+            /* Optionally, hide the whole section if you want */
+            .section:nth-of-type(2) {
+                display: none !important;
+            }
+
+            /* Reduce paddings and margins for print */
+            .section,
+            .content {
+                padding: 12px 0 !important;
+                margin: 0 !important;
+            }
+
+            header {
+                padding: 12px 0 8px 0 !important;
+            }
+
+            .profile-info {
+                gap: 8px !important;
+            }
+
+            .skills {
+                margin-top: 8px !important;
+                gap: 4px !important;
+            }
+
+            @page {
+                margin: 18mm 15mm 18mm 15mm;
+            }
+        }
     </style>
     <!-- Font Awesome for icons -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
@@ -731,7 +881,7 @@
                         <div class="timeline-date">10/2021 - 09/2022</div>
                         <h3 class="timeline-title">Gebrüder Waasner GmbH</h3>
                         <p>Elektroniker für Betriebstechnik</p>
-                        <p>Instandhaltung und Installationen an Stanzmaschinen und sonstigen
+                        <p>Instandhaltung und Installationen an Fertigungsmaschinen und sonstigen
                             Betriebsmitteln.</p>
                         <div class="view-certificate">Zeugnis anzeigen</div>
                     </div>
@@ -777,7 +927,7 @@
             </div>
         </section>
 
-        <!-- Neue Sektion für Zusatzqualifikationen und Dokumente -->
+        <!-- Zusatzqualifikationen & Dokumente -->
         <section class="section">
             <h2 class="section-title">Zusatzqualifikationen & Dokumente</h2>
             <div class="documents-grid">
@@ -789,16 +939,6 @@
                     <h3 class="document-title">Ausbildereignungsprüfung</h3>
                     <p class="document-date">12/2023</p>
                     <p>Berechtigung zum Ausbilden von Auszubildenden</p>
-                </div>
-
-                <!-- Motivationsschreiben -->
-                <div class="document-card" data-certificate="./Anlagen/Berwerbungsschreiben.pdf">
-                    <div class="document-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <h3 class="document-title">Motivationsschreiben</h3>
-                    <p class="document-date">04/2024</p>
-                    <p>Meine Beweggründe und Ziele</p>
                 </div>
 
                 <!-- Lebenslauf als PDF -->
@@ -826,27 +966,28 @@
                 <div class="skill">Elektrotechnik</div>
                 <div class="skill">Betriebstechnik</div>
                 <div class="skill">Ausbildertätigkeit</div>
+                <div class="skill">Fortgeschrittene Englischkenntnisse</div>
             </div>
         </section>
-    </div>
 
-    <!-- Neue HTML-Struktur für den animierten Hintergrund -->
-    <div class="animated-background">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-        <div class="parallax-dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
+        <!-- Neue HTML-Struktur für den animierten Hintergrund -->
+        <div class="animated-background">
+            <div class="floating-shapes">
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+                <div class="shape"></div>
+            </div>
+            <div class="parallax-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
         </div>
     </div>
 
